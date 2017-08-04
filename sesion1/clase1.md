@@ -19,7 +19,7 @@ bloques de memoria aún más complejos.
 
 ## ¿ Qué es un bloque lógico ?
 
-In computación, un bloque lógico o bloque lógico configurable
+En computación, un bloque lógico o bloque lógico configurable
 (__Configurable Logic Block__) es un bloque de construcción fundamental
 de una __FPGA__. Los bloques lógicos pueden ser configurados para
 obtener compuertas lógicas configurables.
@@ -30,5 +30,15 @@ lógicos. Estos bloques necesitan generalmente puertos de entrada/salida
 (I/O) (para interconectarse con señales externas a la FPGA), y canales
 de ruteo (para interconexión de bloques lógicos).
 
-![Logic Cell](./images/FPGA_cell_example.png "Logic Cell")
+### Arquitectura
 
+En general, un bloque lógico consiste de unas cuantas celdas lógicas.
+Una celda lógica típica contiene 4 __LUT__ (__Look Up Tables__), un
+sumador completo (__FA__) y un flip-flop tipo D, como puede verse en la
+figura.
+
+En la actualidad la mayoría de fabricantes han empezado a utilizar LUTs
+de 6 entradas para aprovecharlas en rutas críticas de los diseños
+buscando una mejora del desempeño.
+
+![Logic Cell](./images/FPGA_cell_example.png "Logic Cell")

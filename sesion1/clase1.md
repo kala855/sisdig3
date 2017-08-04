@@ -11,11 +11,13 @@ Una FPGA contiene un arreglo de bloques lógicos programables, y una
 jerarquía de interconexiones reconfigurables que permiten que los
 bloques sean "cableados en conjunto", algo similar a lo que sucede
 cuando se inter-conectan compuertas lógicas en muchas configuraciones.
-Los blosques lógicos pueden ser configurados para realizar funciones
-combinatorial complejas, o para simplemente construir compuertas AND y
+Los bloques lógicos pueden ser configurados para realizar funciones
+combinatorias complejas, o para simplemente construir compuertas AND y
 XOR. En la mayoría de las FPGAs, los bloques lógicos también contienen
 elmentos de memoria, los cuales pueden ser Flip-Flops sencillos o
 bloques de memoria aún más complejos.
+
+## Arquitectura de una FPGA
 
 ## ¿ Qué es un bloque lógico ?
 
@@ -30,7 +32,7 @@ lógicos. Estos bloques necesitan generalmente puertos de entrada/salida
 (I/O) (para interconectarse con señales externas a la FPGA), y canales
 de ruteo (para interconexión de bloques lógicos).
 
-### Arquitectura
+### Arquitectura de un Bloque Lógico
 
 En general, un bloque lógico consiste de unas cuantas celdas lógicas.
 Una celda lógica típica contiene 4 __LUT__ (__Look Up Tables__), un
@@ -42,3 +44,7 @@ de 6 entradas para aprovecharlas en rutas críticas de los diseños
 buscando una mejora del desempeño.
 
 ![Logic Cell](./images/FPGA_cell_example.png "Logic Cell")
+
+## Hard Blocks (Bloques Fijos)
+
+Las familias de FPGAs modernas incluyen funcionalidad de alto nivel integrando directamente en silicio algunas funcionalidades específicas. Es común en la actualidad encontrar bloques fijos de DSP, Procesadores embebidos e inclusive memorias.

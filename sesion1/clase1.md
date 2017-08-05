@@ -171,6 +171,15 @@ ENTITY mux IS
 END mux;
 ```
 
+La palabra reservada _ENTITY_ significa que este es el inicio de una
+entidad. Es común ver que las palabras reservadas que están en el
+_package_ estándar se escriban en mayúscula.
+
+El nombre de la entidad es _mux_. La entidad tiene siete puertos que se
+definen despues de la palabra reservada _PORT_ y dentro de los
+paréntesis. Cómo se puede ver hay seis puertos de entrada y un puerto de
+salida.
+
 ## Cómo usar el ISE Design Suite de Xilinx
 
 [![Empezando a Usar ISE Design 1](https://img.youtube.com/vi/mDLdiAA1d_E/0.jpg)](https://www.youtube.com/watch?v=mDLdiAA1d_E)

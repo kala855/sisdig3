@@ -121,12 +121,60 @@ Xilinx Nexys2")
 ![MicroZed](./images/microzed.png "Tarjeta Zynq (MicroZed Board)")
 
 
-# VHDL (VHSIC Hardware Description Language)
+# __VHDL__ (VHSIC Hardware Description Language)
 
+El lenguaje de descripción de Hardware (__VHDL__ - __Very High Speed Integrated Circuit Language Description Language__) es un lenguaje estándar usado para describir hardware desde un nivel abstracto a un nivel concreto. __VHDL__ resultó de un trabajo realizado por el Departamento de Defensa de Estados Unidos entre los años 70 y 80. Sus raíces parten del lenguaje ADA.
 
+## Términos usados en VHDL
+
+Es importante tener claridad de algunos conceptos que se manejan en el
+lenguaje como tal.
+
+### Entidad
+
+Todos los diseños son expresados en términos de entidades. Una entidad
+es el bloque de construcción más básico en un diseño. Generalmente
+contiene internamente las arquitecturas de los diseños. En una entidad
+normalmente se define el conjunto de entradas y salidas de un diseño.
+
+### Arquitectura
+
+Todas las entidades que pueden ser simuladas contienen internamente una
+arquitectura. La arquitectura describe el comportamiento de la entidad.
+Una única entidad puede contener internamente varias arquitecturas.
+
+### Package
+
+Un package es una colección de tipos de datos y subprogramas usados en
+un diseño. Un package puede verse como un Tool-Box que contiene
+herramientas que nos ayudan en el proceso de diseño.
+
+### Process
+
+Un Process es la unidad básica de ejecución en VHDL. Todas las
+operaciones que son realizadas en una simulación de una descripción en
+__VHDL__ generalmente se dividen en uno o varios __process__.
+
+## Entidad (Entity)
+
+En __VHDL__ una entidad debe definirse con su nombre, los puertos de la
+entidad, y alguna información concerniente a la entidad. Todos los
+diseños son creados usando una o más entidades.
+
+Veamos un pequeño ejemplo de una entidad:
+
+```vhdl
+ENTITY mux IS
+    PORT(a, b, c, d : IN BIT;
+        s0, s1 : IN BIT;
+        x, : OUT BIT);
+END mux;
+```
 
 ## Cómo usar el ISE Design Suite de Xilinx
 
-[![Empezando a Usar ISE Design](https://img.youtube.com/vi/mDLdiAA1d_E/0.jpg)](https://www.youtube.com/watch?v=mDLdiAA1d_E)
+[![Empezando a Usar ISE Design 1](https://img.youtube.com/vi/mDLdiAA1d_E/0.jpg)](https://www.youtube.com/watch?v=mDLdiAA1d_E)
+
+[![Empezando a Usar ISE Design 2](https://img.youtube.com/vi/qifLAgU77uE/0.jpg)](https://www.youtube.com/watch?v=qifLAgU77uE)
 
 

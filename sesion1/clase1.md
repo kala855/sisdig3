@@ -47,4 +47,71 @@ buscando una mejora del desempeño.
 
 ## Hard Blocks (Bloques Fijos)
 
-Las familias de FPGAs modernas incluyen funcionalidad de alto nivel integrando directamente en silicio algunas funcionalidades específicas. Es común en la actualidad encontrar bloques fijos de DSP, Procesadores embebidos e inclusive memorias.
+Las familas de __FPGAS__ modernas incluyen funcionalidad de alto nivel
+integrando directamente en silicio algunas características específicas.
+Es común en la actualidad encontrar bloques fijos de __DSP__,
+procesadores embebidos e inclusive memorias.
+
+## Clocking
+
+La mayoría de la circuitería presente en una __FPGA__ es síncrona, es
+decir requiere una señal de reloj. Las __FPGAs__ contienen redes
+globales y regionales dedicadas para señales de reloj y reset de manera
+que se disminuya al máximo el skew del dispositivo. En una __FPGA__ es
+posible realizar diseños que tengan diferentes frecuencias de reloj y
+fases distintas.
+
+## Arquitecturas en 3D
+
+Con el fin de disminuir el tamaño y consumo de potencia de las
+__FPGAs__, algunos fabricantes han introducido arquitecturas 3D. Un
+ejemplo de esto son las __FPGAs__ de la serie 7 de __Xilinx__, las
+cuales contienen algunos sectores de alta densidad en las cuales se
+usan múltiples dies en un solo _package_.
+
+![Zynq7000](./images/zynq7000.jpg "Arquitectura de una tarjeta
+de Desarrollo actual")
+
+# Diseño y Programación de una __FPGA__
+
+Para definir el comportamiento de una __FPGA__, el usuario debe
+construir un diseño utilizando un lenguaje de descripción de hardware
+(__Hardware Description Language__ - __HDL__) o también a través de un
+diseño esquemático. El uso de __HDL__ es el más recomendado para
+trabajar con grandes estructuras porque es posible definirlas
+automáticamente y no tener que dibujarlas una a una.
+
+Entonces, usando una herramiento de diseño electrónico, como el ISE de
+Xilinx, un mapeo conocido como __netlist__ es generado. Éste __netlist__
+puede ser llevado a la arquitectura de la __FPGA__ usando un proceso
+llamado __place-and-route__, que es usualmente realizado por el software
+específico de la compañía creadora de la __FPGA__ utilizada. El usuario
+normalmente puede validar el mapeo, el proceso de __place-and-route__
+utilizando análisis de tiempos, simulación entre otras metodologías de
+verificación. Una vez el proceso de diseño y validación es completo, un
+archivo binario es generado (de igual manera su generación estará atada
+al software de la empresa de la __FPGA__) el cuál será utilizado para
+configurar o re-configurar la __FPGA__. Este archivo es transferido a la
+__FPGA__ a través de una interface serial conocida como __JTAG__ o en
+algunos casos a una memoria externa como una __EEPROM__.
+
+Los lenguajes de descripción de hardware mas utilizados son __VHDL__ y
+__Verilog__, aunque en un intento por facilitar los procesos de diseño
+de Hardware, National Instruments tiene un lenguaje de programación
+gráfico que puede usarse para programar hardware sobre la __FPGA__.
+
+Para simplificar el diseño de sistemas complejos sobre la __FPGA__,
+existen diversas librerías de funciones complejas y circuitos que han
+sido probados y optimizados para acelerar nuestros procesos de diseño.
+Estos circuitos predefinidos son comúnmente conocidos como __IP Cores__,
+y están disponibles a través de los fabricantes de __FPGAs__ y algunos
+otros proveedores. También existen algunos circuitos disponibles para la
+comunidad en general conocidos como __OpenCores__.
+
+Algunos ejemplos de sistemas de desarrollo con __FPGAs__ se pueden ver a
+continuación:
+
+
+![Zynq7000](./images/zynq7000.jpg "Arquitectura de una tarjeta
+de Desarrollo actual")
+

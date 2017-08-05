@@ -127,7 +127,6 @@ Xilinx Nexys2")
 
 ## Cómo usar el ISE Design Suite de Xilinx
 
-
-![Video1](https://www.youtube.com/watch?v=mDLdiAA1d_E)
+[![Empezando a Usar ISE Design](https://img.youtube.com/vi/mDLdiAA1d_E/0.jpg)](https://www.youtube.com/watch?v=mDLdiAA1d_E)
 
 

@@ -111,7 +111,12 @@ comunidad en general conocidos como __OpenCores__.
 Algunos ejemplos de sistemas de desarrollo con __FPGAs__ se pueden ver a
 continuación:
 
+![Nexys2](./images/nexys2.jpg "Ejemplo de un sistema de desarrollo
+Xilinx Nexys2")
 
-![Zynq7000](./images/zynq7000.jpg "Arquitectura de una tarjeta
-de Desarrollo actual")
+![CycloneIV](./images/cycloneIV.jpg "Tarjeta CycloneIV de Altera")
+
+![Spartan3E](./images/spartan3e.jpg "Tarjeta Spartan3E de Xilinx")
+
+![MicroZed](./images/microzed.png "Tarjeta Zynq (MicroZed Board)")
 

@@ -152,7 +152,7 @@ BEGIN
 
     c <= a and b;
 
-END arqAnd
+END arqAnd;
 ```
 
 ### Package

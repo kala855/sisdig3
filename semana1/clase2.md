@@ -143,6 +143,18 @@ Todas las entidades que pueden ser simuladas contienen internamente una
 arquitectura. La arquitectura describe el comportamiento de la entidad.
 Una única entidad puede contener internamente varias arquitecturas.
 
+A continuación veremos un ejemplo básico de una arquitectura en VHDL, en
+este caso estamos creando una compuerta __AND__.
+
+```vhdl
+ARCHITECTURE arqAnd OF pruebaAnd IS
+BEGIN
+
+    c <= a and b;
+
+END arqAnd
+```
+
 ### Package
 
 Un package es una colección de tipos de datos y subprogramas usados en

@@ -127,7 +127,7 @@ BEGIN
             i1 AFTER 10 ns WHEN 1,
             i2 AFTER 10 ns WHEN 2,
             i3 AFTER 10 ns WHEN 3,
-            'x' AFTER 10 ns WHEN OTHERS;
+            'X' AFTER 10 ns WHEN OTHERS;
 
     sel <= 0 WHEN a = '0' AND b = '0' ELSE
         1 WHEN a = '1' AND b = '0' ELSE
@@ -146,3 +146,32 @@ podemos ver la tabla de verdad de este multiplexor.
 
 ![tablaverdad](./images/tablaverdadmux.png "Tabla de Verdad del Multiplexor")
 
+Cómo podemos ver en el diseño de la arquitectura, se pueden ver dos
+asignaciones principales, la primer asignación es realizada con el
+condicional __SELECT__ y la cláusula __WHEN__, esto es una asignación
+condicional que depende directamente de los valores que tome la señal
+__sel__, cómo podemos ver las señales que se definen dentro de la
+arquitectura deben definirse entre la definicion de __ARCHITECTURE__ y
+el __BEGIN__ de la arquitectura como tal. Para el ejemplo, __sel__ se
+tomará como una señal de tipo __INTEGER__. Si analizamos detenidamente
+la primer asignación no se realizará hasta tanto el valor de la señal
+__sel__ no cambie.
+
+La señal __sel__ por su parte es asignada en la segunda asignación, de
+manera tal que aquí podemos ver el concepto de concurrencia
+efectivamente. Así que debido a esto el diseño está bien construidos,
+garantizando que los valores de la señal __sel__ estarán definidos para
+cuando el diseño entre en "acción".
+
+# Taller
+
+* Realizar en VHDL, utilizando la herramienta ISE Design Suite los
+  diseños vistos en clase hasta ahora, es decir la compuerta __and__ y
+  el multiplexor en cuestión.
+* Investigar por qué motivo en el diseño del multiplexor se utiliza otro
+  tipo señales de entrada, **std_logic** en lugar de __bit__. Cuándo
+  usar un tipo o el otro ?
+* Adicionalmente construir diseños para una compuerta __or__ y __not__.
+* Todos los diseños deberán tener su __test bench__, serán revisados la
+  siguiente clase.
+* Definan por favor los grupos de trabajo.

@@ -104,8 +104,45 @@ Recordemos que un __Multiplexor__ es un dispositivo que nos permite
 seleccionar una salida a partir de un conjunto de valores de entrada.
 
 En la siguiente figura podemos ver el diagrama de un multiplexor de 4
-entradas:
+entradas, que podemos utilizar como la entidad que deberemos modelar:
 
 ![multiplexor](./images/multiplexor.png "Diagrama Esquemático Multiplexor de 4 Entradas")
 
+El modelo comportamenta para éste multiplexor puede estar dado por:
+
+```vhdl
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY mux4 IS
+PORT (i0, i1, i2, i3, i4, a, b : IN std_logic
+                            q : OUT std_logic);
+END mux4;
+
+ARCHITECTURE arq_mux4 OF mux4 IS
+SIGNAL sel: INTEGER;
+BEGIN
+    WITH sel SELECT
+        q <= i0 AFTER 10 ns WHEN 0,
+            i1 AFTER 10 ns WHEN 1,
+            i2 AFTER 10 ns WHEN 2,
+            i3 AFTER 10 ns WHEN 3,
+            'x' AFTER 10 ns WHEN OTHERS;
+
+    sel <= 0 WHEN a = '0' AND b = '0' ELSE
+        1 WHEN a = '1' AND b = '0' ELSE
+        2 WHEN a = '0' AND b = '1' ELSE
+        3 WHEN a = '1' AND b = '1' ELSE
+        4;
+END arq_mux4;
+```
+
+La entidad para este modelo tiene seis puertos de entrada, cuatro de
+éstas entradas (__i0, i1, i2, i3__) representan los valores que serán
+asignados a la salida __q__. Sólo una de las entradas sera asignada a
+la vez, el valor que se asigne dependerá de las señales de entrada __a__
+y __b__ quiénes típicamente se conocen como selectores. A continuación
+podemos ver la tabla de verdad de este multiplexor.
+
+![tablaverdad](./images/tablaverdadmux.png "Tabla de Verdad del Multiplexor")
 

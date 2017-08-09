@@ -80,3 +80,32 @@ END arqAnd2;
 A continuación podemos ver un diagrama esquemático de una compuerta __and__.
 
 ![compuertaAND](./images/and.png "Diagrama Esquemático Compuerta AND")
+
+El diseño de esta compuerta, como ya se ha mencionado tiene en su lista
+de sensibilidad 2 señales, __a__ y __b__, si alguna de ellas cambia
+pueden pasar 2 cosas. En el caso de una compuerta __and__, si __a__ es
+igual a '0' y __b__ cambia de '1' a __0__, la salida __c__ no cambia.
+Ahora si la salida cambia de valor, entonces una transacción ocurre la
+cual causa que un evento sea calendarizado sobre la señal __c__; en otro
+caso, una transaccion ocurre sobre la señal __c__.
+
+En nuestro ejemplo de compuerta __and__ el valor de la expresión __a__ y
+__b__ es calculado en primera instancia, y el valor resultante del
+cálculo es calendarizado sobre la salida __c__ 5 nano segundos despues
+de que el cálculo esté completo.
+
+### Ejemplo Multiplexor de 4 Entradas
+
+Ahora veamos un ejemplo con un conjunto de asignaciones un poco más
+complicadas con el objetivo de demostrar el concepto de concurrencia en
+mayor detalle.
+
+Recordemos que un __Multiplexor__ es un dispositivo que nos permite
+seleccionar una salida a partir de un conjunto de valores de entrada.
+
+En la siguiente figura podemos ver el diagrama de un multiplexor de 4
+entradas:
+
+![multiplexor](./images/multiplexor.png "Diagrama Esquemático Multiplexor de 4 Entradas")
+
+

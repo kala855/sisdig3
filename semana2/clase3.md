@@ -54,3 +54,29 @@ efecto de ésta asignación, es que el valor actual de __b__ es asignado a
 la señal __a__. Ésto será ejecutado cuando el valor de la señal __b__
 cambie. La señal __b__ está en la lista de sensibilidad de la
 asignación.
+
+Por ejemplo la siguiente sentencia nos muestra cómo asignar un valor con
+un retraso de __10 ns__.
+
+```vhdl
+a <= b after 10 ns;
+```
+Con los anteriores ejemplos, es posible utilizar una asignación concurrente
+de señales para modelar una compuerta __and__ como podremos ver a
+continuación.
+
+```vhdl
+ENTITY and2 IS
+        PORT ( a, b : IN BIT;
+                c : OUT BIT );
+END and2;
+
+ARCHITECTURE arqAnd2 OF and2 IS
+BEGIN
+        c <= a AND b AFTER 5 ns;
+END arqAnd2;
+```
+
+A continuación podemos ver un diagrama esquemático de una compuerta __and__.
+
+![compuertaAND](./images/and.png "Diagrama Esquemático Compuerta AND")

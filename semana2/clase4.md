@@ -57,7 +57,11 @@ El diseño tiende a tener un parecido a un lenguaje de programación típico. To
 
 Vamos a intentar mostrar las diferencias que existen cuando se definen __signals__ y __variables__ dentro de un diseño que aprovecha los _process_ para su funcionamiento. 
 
-En primera instancia vamos a evaluar un diseño de un multiplexor como se puede ver en la siguiente gráfica.
+En primera instancia vamos a evaluar un diseño de un multiplexor como se puede ver en la siguiente gráfica:
+
+![multiplexor](./images/multiplexor.png "Diagrama Esquemático Multiplexor de 4 Entradas")
+
+![tablaVerdad](./images/tablaverdadmux.png "Tabla de Verdad Multiplexor de 4 Entradas")
 
 
 

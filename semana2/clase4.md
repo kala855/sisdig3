@@ -147,3 +147,12 @@ BEGIN
 	END PROCESS;
 END cool;
 ```
+En este caso el cambio que se realiza; en el que se define __muxval__ como una __variable__ en lugar de __signal__, permite que el diseño funcione de manera adecuada. Las variables son asignadas inmediatamente y representan almacenamiento local de manera opuesta a las señales que representan interconexiones entre circuitos. El almacenamiento local es actualizado inmediatamente, y un nuevo valor puede ser usado después dentro del modelo para cálculos futuros.
+
+# Taller
+
+* Construir los tres multiplexores vistos durante esta clase.
+* Crear un solo proyecto para albergar los tres diseños.
+* Realizar un test bench para cada uno de los móduos construidos.
+* Escribir 3 conclusiones del funcionamiento de cada uno de los diseños.
+* Enviar vía correo electrónico con el asunto Taller2SisDig3 al correo del profesor. Verificar fecha de entrega durante la clase.

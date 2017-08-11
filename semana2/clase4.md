@@ -35,19 +35,18 @@ begin
 
 process(PCDisp30,PCDisp22,PC4,PCAddress,PCAddress,PCSource) -- Lista de Sensibilidad
 begin
-		case PCSource is
-			when "00" =>
-				PCAddressOut <= PCAddress;
-			when "01" =>
-				PCAddressOut <= PCDisp30;
-			when "10" =>
-				PCAddressOut <= PCDisp22;
-			when "11" =>
-				PCAddressOut <= PC4;
-			when others =>
-				PCAddressOut <= PC4;
-		end case;
+	case PCSource is
+		when "00" =>
+			PCAddressOut <= PCAddress;
+		when "01" =>
+			PCAddressOut <= PCDisp30;
+		when "10" =>
+			PCAddressOut <= PCDisp22;
+		when "11" =>
+			PCAddressOut <= PC4;
+		when others =>
+			PCAddressOut <= PC4;
+	end case;
 end process;
-
 end arqMuxPCSource;
 ```

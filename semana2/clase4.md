@@ -79,17 +79,17 @@ PORT (i0,i1,i2,i3,a,b : IN std_logic;
 END mux;
 
 ARCHITECTURE wrong of mux IS
-	SIGNAL muxval : INTEGER;
+	SIGNAL muxval : INTEGER; -- Se define una señal
 BEGIN
 	PROCESS (i0,i1,i2,i3,a,b)
 	BEGIN
-		muxval <= 0;
+		muxval <= 0; -- Las actualizaciones de las señales no son inmediatas. Generalmente tienen un retraso.
 		IF (a = '1') THEN
-			muxval <= muxval + 1;
+			muxval <= muxval + 1; -- Debido al retraso, el valor de muxval que se modifica aquí tiene basura
 		END IF;
 		
 		IF (b = '1') THEN
-			muxval <= muxval + 2;
+			muxval <= muxval + 2; -- De igual manera en este punto tampoco tendríamos un valor válido para el primer caso.
 		END IF;
 		
 		CASE muxval IS

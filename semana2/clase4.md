@@ -105,5 +105,4 @@ BEGIN
 	END PROCESS;
 END wrong;
 ```
-
-
+Como se puede ver dentro de los comentario en el ejemplo, este diseño tiene una falla que es ocasionada debido al uso de una señal, las señales tienen como una de sus características en que en efecto son netamente __Hardware__, como si de un cable se tratara, esto ocasiona que la asignación que se hace no se vea reflejada inmediatamente, motivo por el cual el diseño empezará a funcionar con un valor para __muxval__ que es diferente de __0__.

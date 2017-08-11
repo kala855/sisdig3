@@ -52,3 +52,14 @@ end arqMuxPCSource;
 Como se puede ver en el diseño, tenemos un __MUX__ de 5 entradas, de las cuales la señal llamada __PCSource__ va a funcionar como el selector, y tenemos 4 entradas entre las cuáles se seleccionará la salida correcta a colocarse en __PCAddressOut__. Las sentencias dentro del __process__ se ejecutan sólo si alguna de las señales definidas dentro del _process_ cambia de valor.
 
 El diseño tiende a tener un parecido a un lenguaje de programación típico. Todo lo que está internamente en el _process_ se ejecutara de manera serial. También es importante mencionar que una arquitectura puede tener múltiples _process_ lo cuales entre ellos sí se ejecutarían de manera concurrente según sea el caso.
+
+## Signal Assignment Versus Variable Assignment
+
+Vamos a intentar mostrar las diferencias que existen cuando se definen __signals__ y __variables__ dentro de un diseño que aprovecha los _process_ para su funcionamiento. 
+
+En primera instancia vamos a evaluar un diseño de un multiplexor como se puede ver en la siguiente gráfica.
+
+
+
+
+

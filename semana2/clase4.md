@@ -106,3 +106,44 @@ BEGIN
 END wrong;
 ```
 Como se puede ver dentro de los comentario en el ejemplo, este diseño tiene una falla que es ocasionada debido al uso de una señal, las señales tienen como una de sus características en que en efecto son netamente __Hardware__, como si de un cable se tratara, esto ocasiona que la asignación que se hace no se vea reflejada inmediatamente, motivo por el cual el diseño empezará a funcionar con un valor para __muxval__ que es diferente de __0__.
+
+### Ejemplo Multiplexor Correcto
+
+Ahora vamos a corregir nuestro anterior diseño, para que funcione de la manera requerida. 
+
+```vhdl
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY mux IS
+PORT (i0,i1,i2,i3,a,b : IN std_logic;
+					q : OUT std_logic);
+END mux;
+
+ARCHITECTURE cool of mux IS
+BEGIN
+	PROCESS (i0,i1,i2,i3,a,b)
+		VARIABLE muxval : INTEGER; -- Se define una variable en este caso
+	BEGIN
+		muxval := 0; -- Note que los valores a una variable se le asignan con el operador :=
+		IF (a = '1') THEN
+			muxval <= muxval + 1; -- Al tratarse de una variable, la asignación del valor se hace de inmediato.
+		END IF;
+		
+		IF (b = '1') THEN
+			muxval <= muxval + 2;
+		END IF;
+		
+		CASE muxval IS
+			WHEN 0 => 
+				q <= i0 AFTER 10 ns;
+			WHEN 1 =>
+				q <= i1 AFTER 10 ns;
+			WHEN 2 =>
+				q <= i2 AFTER 10 ns;
+			WHEN OTHERS =>
+				NULL;
+		END CASE;
+	END PROCESS;
+END cool;
+```

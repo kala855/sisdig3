@@ -99,6 +99,8 @@ BEGIN
 				q <= i1 AFTER 10 ns;
 			WHEN 2 =>
 				q <= i2 AFTER 10 ns;
+			WHEN 3 =>
+				q <= i3 AFTER 10 ns;
 			WHEN OTHERS =>
 				NULL;
 		END CASE;
@@ -141,6 +143,8 @@ BEGIN
 				q <= i1 AFTER 10 ns;
 			WHEN 2 =>
 				q <= i2 AFTER 10 ns;
+			WHEN 3 =>
+				q <= i3 AFTER 10 ns;
 			WHEN OTHERS =>
 				NULL;
 		END CASE;

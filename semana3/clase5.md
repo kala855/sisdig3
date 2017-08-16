@@ -78,3 +78,9 @@ END CASE;
 ```
 
 En este último caso se está mostrando una forma en la cual podría convertirse un arreglo de bits en un entero.
+
+### Sentencias LOOP
+
+La sentencia __LOOP__ es usada cuando una operación necesita ser repetida. A continuación puede verse su __BNF__:
+
+![BNFNotationLOOP](./images/loopBNF.png)

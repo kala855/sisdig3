@@ -115,3 +115,7 @@ BEGIN
   END LOOP;
 END PROCESS;
 ```
+
+En este caso podemos ver una señal __i__ que hace parte de la lista de sensibilidad del __PROCESS__ y también tenemos una variable __i__ como el índice en el __FOR__, sin embargo las dos variables hacen referencia a diferentes valores, que son tratados de manera diferente dentro del __FOR__ y fuera de él.
+
+

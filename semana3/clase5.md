@@ -135,3 +135,16 @@ BEGIN
   END LOOP;
 END PROCESS;
 ```
+
+En este ejemplo, el rango es especificado por el tipo definido. Al especificar el tipo como un rango, el compilador determina quien es el primer valor para este caso __sun__, y quien es el valor final, para este ejemplo __sat__. De esa manera el rango entonces es definido desde __sun__ hasta __sat__.
+
+Si se desea utilizar un rango descendente, se usa la palabra reservada __to__. Si por el contrario se desea un rango descendente entonces puede usarse la palabra reservada __downto__. Veamos un ejemplo:
+
+```vhdl
+PROCESS (x,y)
+BEGIN
+  FOR i IN x DOWNTO y LOOP
+    q(i) := w(i);
+  END LOOP;
+END PROCESS;
+```

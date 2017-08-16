@@ -118,4 +118,20 @@ END PROCESS;
 
 En este caso podemos ver una señal __i__ que hace parte de la lista de sensibilidad del __PROCESS__ y también tenemos una variable __i__ como el índice en el __FOR__, sin embargo las dos variables hacen referencia a diferentes valores, que son tratados de manera diferente dentro del __FOR__ y fuera de él.
 
+También es importante notar que el rango que se puede manejar en el __FOR__ no tiene que ser necesariamente valores enteros, a continuación podemos ver un ejemplo:
 
+```vhdl
+PROCESS(clk)
+  TYPE day_of_week IS (sun, mon, tue, wed, thur, fri, sat);
+BEGIN
+  FOR i IN day_of_week LOOP
+    IF i = sat THEN
+      son <= mow_lawn;
+    ELSIF i = sun THEN
+      church <= family;
+    ELSE
+      dad <= go_to_work;
+    END IF;
+  END LOOP;
+END PROCESS;
+```

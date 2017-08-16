@@ -81,6 +81,25 @@ En este último caso se está mostrando una forma en la cual podría convertirse
 
 ### Sentencias LOOP
 
-La sentencia __LOOP__ es usada cuando una operación necesita ser repetida. A continuación puede verse su __BNF__:
+La sentencia __LOOP__ es usada cuando una operación necesita ser repetida varias veces. A continuación puede verse su __BNF__:
 
 ![BNFNotationLOOP](./images/loopBNF.png)
+
+La sentencia __LOOP__ tiene un label opcional, el cual se usa si es necesaria identificar la sentencia __LOOP__. Ésta sentencia también posee un __iteration_scheme__ opcional, el cual permite determinar el tipo de __LOOP__, si es __FOR__ o __WHILE__.
+
+Veamos algunos ejemplos:
+
+```vhdl
+WHILE (day = weekday) LOOP
+  day := get_next_day(day);
+END LOOP;
+```
+
+Otra versión de la sentencia __LOOP__ la podemos ver en el siguiente ejemplo:
+
+```vhdl
+FOR i IN 1 TO 10 LOOP
+  i_squared(i) := i * i;
+END LOOP;
+```
+

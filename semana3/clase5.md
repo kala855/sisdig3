@@ -38,4 +38,4 @@ END IF;
 
 La sentencia __CASE__ es utilizada normalmente cuando vamos a seleccionar un valor de un número de opciones diferentes. El BNF para la sentencia __CASE__ puede verse a continuación:
 
-
+![BNFNotationCASE](./images/caseBNF.png)

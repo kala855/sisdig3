@@ -39,3 +39,5 @@ END IF;
 La sentencia __CASE__ es utilizada normalmente cuando vamos a seleccionar un valor de un número de opciones diferentes. El BNF para la sentencia __CASE__ puede verse a continuación:
 
 ![BNFNotationCASE](./images/caseBNF.png)
+
+Esta sentencia consiste de la palabra reservada __CASE__ seguida por una expresión y la palabra reservada __IS__. La expresión retornará un valor que concuerda con alguna de las __CHOICES__ en la sentencia __WHEN__, o concordará con la sentencia __OTHERS__. 

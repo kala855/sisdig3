@@ -103,4 +103,15 @@ FOR i IN 1 TO 10 LOOP
 END LOOP;
 ```
 
-En algunos lenguajes la variable __i__, que es utilizada como índice en el __FOR__, se le permite ser cambiada dentro del __LOOP__, sin embargo esto no es posible en __VHDL__. También es interesante saber que ésta variable es declarada localmente en el __FOR__, esto significa que si tengo otra variable con el mismo nombre en mi __PROCESS, FUNCTION o PROCEDURE__ serán tratadas como variables diferentes.
+En algunos lenguajes la variable __i__, que es utilizada como índice en el __FOR__, se le permite ser cambiada dentro del __LOOP__, sin embargo esto no es posible en __VHDL__. También es interesante saber que ésta variable es declarada localmente en el __FOR__, esto significa que si tengo otra variable con el mismo nombre en mi __PROCESS, FUNCTION o PROCEDURE__ serán tratadas como variables diferentes. Veamos un ejemplo de lo anterior:
+
+```vhdl
+PROCESS(i)
+BEGIN
+  x <= i + 1; -- x is a signal
+  
+  FOR i IN 1 TO a/2 LOOP
+    q(i) := a; -- q is a variable
+  END LOOP;
+END PROCESS;
+```

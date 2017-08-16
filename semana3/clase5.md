@@ -40,4 +40,41 @@ La sentencia __CASE__ es utilizada normalmente cuando vamos a seleccionar un val
 
 ![BNFNotationCASE](./images/caseBNF.png)
 
-Esta sentencia consiste de la palabra reservada __CASE__ seguida por una expresión y la palabra reservada __IS__. La expresión retornará un valor que concuerda con alguna de las __CHOICES__ en la sentencia __WHEN__, o concordará con la sentencia __OTHERS__. 
+Esta sentencia consiste de la palabra reservada __CASE__ seguida por una expresión y la palabra reservada __IS__. La expresión retornará un valor que concuerda con alguna de las __CHOICES__ en la sentencia __WHEN__, o concordará con la sentencia __OTHERS__.
+
+Veamos un par de ejemplos de uso de esta sentencia:
+
+```vhdl
+CASE instruction IS
+  WHEN load_accum =>
+    accum <= data;
+  WHEN store_accum =>
+    data_out <= accum;
+  WHEN load|store =>
+    process_IO(addr);
+  WHEN OTHERS =>
+    process_error(instruction);
+END CASE;
+```
+Ahora veamos un ejemplo un poco más complejo, en el cual se utiliza un tipo de dato creado por el diseñador:
+
+```vhdl
+TYPE vectype IS ARRAY(0 TO 1) OF BIT;
+VARIABLE bit_vec : vectype;
+.
+.
+.
+
+CASE bit_vec IS
+  WHEN "00" =>
+    RETURN 0;
+  WHEN "01" =>
+    RETURN 1;
+  WHEN "10" =>
+    RETURN 2;
+  WHEN "11" =>
+    RETURN 3;
+END CASE;
+```
+
+En este último caso se está mostrando una forma en la cual podría convertirse un arreglo de bits en un entero.

@@ -148,3 +148,25 @@ BEGIN
   END LOOP;
 END PROCESS;
 ```
+
+## Ejemplo de diseño de un FLIP-FLOP tipo D
+
+Para crear un __FLIP-FLOP__ tipo __D__ usando VHDL podemos hacerlo de la siguiente manera:
+
+```vhdl
+PROCESS (clk)
+BEGIN
+  IF(rising_edge(clk)) THEN
+    IF(reset = '1') THEN
+      d_out <= '0';
+    ELSE
+      d_out <= d_in;
+    END IF;
+  END IF;
+END PROCESS;
+```
+
+### Ejercicio 
+
+* Crear la entidad para este diseño.
+* Crear su test-bench

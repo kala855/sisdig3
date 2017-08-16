@@ -129,11 +129,11 @@ BEGIN
 	BEGIN
 		muxval := 0; -- Note que los valores a una variable se le asignan con el operador :=
 		IF (a = '1') THEN
-			muxval <= muxval + 1; -- Al tratarse de una variable, la asignación del valor se hace de inmediato.
+			muxval := muxval + 1; -- Al tratarse de una variable, la asignación del valor se hace de inmediato.
 		END IF;
 		
 		IF (b = '1') THEN
-			muxval <= muxval + 2;
+			muxval := muxval + 2;
 		END IF;
 		
 		CASE muxval IS

@@ -137,4 +137,6 @@ BEGIN
   END PROCESS;
 END mux_fix2;
 ```
+En este caso, la señal __sel__ de el ejemplo anterior ha sido convertida a una variable entera interna. Esto fue realizado moviendo la declaración desde la arquitectura a antes del __BEGIN__ del __PROCESS__. Las variables sólo puede ser declaradas en la sección de el __PROCESS__ o de los __SUBPROGRAM__.
 
+Ahora que se usan variables, las asignaciones __:=__ que funcionan sobre este tipo de declaraciones deben usarse. Las variables son actualizadas inmediatamente y permitirán que nuestro diseño funcionen de la manera esperada.

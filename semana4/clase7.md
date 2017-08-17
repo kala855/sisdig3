@@ -94,4 +94,47 @@ END mux_fix1;
 ```
 Las sentencias __WAIT__ después de cada asignación en las señales causan al proceso a esperar por un delta de tiempo antes de continuar con la ejecución. Esperar este delta ocasiona que el nuevo valor alcance a propagarse de la manera esperada.
 
-Una consecuencia de las sentencias __WAIT__, sin embargo, es que el proceso no puede tener una lista de sensibilidad. Un proceso con sentencias __WAIT__
+Una consecuencia de las sentencias __WAIT__, sin embargo, es que el proceso no puede tener una lista de sensibilidad. Un proceso con sentencias __WAIT__ que se encuentren dentro de él o en un llamado a un subprograma llamado desde el proceso no puede tener una lista de sensibilidad. La lista de sensibilidad implica que la ejecución incie desde el inicio del procedimiento, mientras una sentencia __WAIT__ permite suspender un proceso particular en un punto específico. Las 2 son mutuamente exclusivas.
+
+Dado que el proceso no puede tener la lista de sensibilidad, una sentencia __WAIT__ ha sido añadida al final del __process__, de manera tal que se imita el comportamiento exacto de una lista de sensibilidad. Ésta sentencia puede verse a continuación:
+
+```vhdl
+WAIN ON a, b, i0, i1, i2, i3;
+```
+La sentencia __WAIT__ permite continuar cuando alguna de las señales definidas despues de la palabra reservada __ON__ tiene algún tipo de evento sobre ellas.
+
+Este método permite resolver el problema de asignación secuencial, pero una mejor solución es usar una variable interna, en lugar de una señal interna como se muestra a continuación:
+
+```vhdl
+ARCHITECTURE mux_fix2 OF mux IS
+BEGIN
+  PROCESS (a, b, i0, i1, i2, i3)
+    VARIABLE sel : INTEGER RANGE 0 TO 3;
+  BEGIN
+    sel := 0;
+    WAIT FOR 0 ns; 
+    
+    IF (a = '1') THEN
+      sel := sel + 1;
+    END IF;
+    
+    IF (b='1') THEN
+      sel := sel + 2;
+    END IF;
+  
+    CASE sel IS
+      WHEN 0 => 
+        q <= i0;
+      WHEN 1 => 
+        q <= i1;
+      WHEN 2 => 
+        q <= i2;
+      WHEN 3 => 
+        q <= i3;
+      WHEN OTHERS =>
+        q <= NULL;
+    END CASE;
+  END PROCESS;
+END mux_fix2;
+```
+

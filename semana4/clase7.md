@@ -184,6 +184,25 @@ END sigdecl;
 
 USE WORK.sigdecl.ALL;
 LIBRARY IEEE;
-USE IEEE.std_log
+USE IEEE.std_log_1164.ALL;
+ENTITY board_design IS
+  PORT (data_in : IN bus_type;
+        data_out: OUT bus_type);
+        
+  SIGNAL sys_clk : std_logic := '1';
+END board_desing;
+
+ARCHITECTURE data_flow OF board_design IS
+  SIGNAL int_bus : bus_type;
+  CONSTANT disconnect_value : bus_type := ('X','X','X','X','X','X','X','X');
+BEGIN
+  int_bus <= data_in WHEN sys_clk = '1'
+    ELSE int_bus;
+    
+  data_out <= magic_function(int_bus) WHEN sys_clk = '0'
+    ELSE disconnect_value;
+    
+  sys_clk <= NOT(sys_clk) after 50 NS;
+END data_flow;
 
 ```

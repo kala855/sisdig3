@@ -204,5 +204,19 @@ BEGIN
     
   sys_clk <= NOT(sys_clk) after 50 NS;
 END data_flow;
-
 ```
+
+Las señales __vcc__ y __ground__ están declaradas en el paquete __sigdecl__. Debido a este tipo de declaración, ellas pueden ser referenciadas por más de una entidad siendo así señales globales. Para que desde una entidad se pueda referenciar estas señales, la entidad debe usar el paquete __sigdecl__ que fue creado previamente. Para usarlo, debe usarse la palabra __USE__ de __VHDL__, como se ve a continuación:
+
+```vhdl
+USE work.sigdecl.vcc;
+USE work.sigdecl.ground;
+```
+
+O:
+
+```vhdl
+USE work.sigdecl.ALL;
+```
+
+En el primer ejemplo los objetos son incluídos de manera específica. En el segundo ejemplo se incluye el paquete completo.

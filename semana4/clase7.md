@@ -169,5 +169,21 @@ Las señales deben ser declaradas en las secciones de declaración de la entidad
 A continuación podemos ver un ejemplo de declaración de señales:
 
 ```vhdl
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+PACKAGE sigdecl IS
+  TYPE bus_type IS ARRAY(0 TO 7) OF std_logic;
+  
+  SIGNAL vcc : std_logic := '1';
+  SIGNAL ground : std_logic := '0';
+  
+  FUNCTION magic_function (a : IN bus_type) RETURN
+    bus_type;
+    
+END sigdecl;
+
+USE WORK.sigdecl.ALL;
+LIBRARY IEEE;
+USE IEEE.std_log
 
 ```

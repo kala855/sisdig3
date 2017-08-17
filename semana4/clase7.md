@@ -1,4 +1,4 @@
-# Problema de Asignación Concurrente
+# PROBLEMA DE ASIGNACIÓN CONCURRENTE
 
 Uno de los problemas que la mayoría de diseñadores enfrentan cuando usan __Sequential Signal Assigment__ tiene que ver  con el hecho de que los valores asignados no aparecen inmediatamente en las señales. Esto puede causar comportamiento erróneo en el modelo si el diseñador depende de la actualización de este valor. Un ejemplo de este problema puede verse a continuación:
 
@@ -140,3 +140,34 @@ END mux_fix2;
 En este caso, la señal __sel__ de el ejemplo anterior ha sido convertida a una variable entera interna. Esto fue realizado moviendo la declaración desde la arquitectura a antes del __BEGIN__ del __PROCESS__. Las variables sólo puede ser declaradas en la sección de el __PROCESS__ o de los __SUBPROGRAM__.
 
 Ahora que se usan variables, las asignaciones __:=__ que funcionan sobre este tipo de declaraciones deben usarse. Las variables son actualizadas inmediatamente y permitirán que nuestro diseño funcionen de la manera esperada.
+
+# TIPOS DE DATOS
+
+Vamos ahora a ver los tipos de datos que se puede usar en __VHDL__, ya algunos hemos venido utilizándolos, ahora vamos a dar una explicación de los más comunes.
+
+## Tipos de Objetos
+
+Un objeto en __VHDL__ consiste de uno de los siguientes:
+
+* __SIGNAL__, la cual representa una interconexión cableada que conecta puertos instanciados en los componentes.
+
+* __VARIABLE__, la cual es usada para almacenamiento local de datos temporales, sólo es visible al interior del __PROCESS__.
+
+* __CONSTANT__, la cual nombra valores específicos.
+
+### SIGNAL
+
+Los objetos de este tipo son usados para conectar entidades entre sí y formar modelos complejos. Las señales son los medios de comunicación de datos dinámicos entre entidades. Una declaración de una señal se ve de la siguiente manera:
+
+```vhdl
+SIGNAL signal_name : signal_type [:= initial_value];
+```
+La palabra clave __SIGNAL__ es seguida por una o más nombres de señale. Cada nombre de señal crea una nueva señal como tal. Cada nombre de señal debe ir separado con una coma. Los tipos de señal especifican el tipo de dato de la información que contendrá esa señal. Finalmente, la señal puede contener valores de inicialización.
+
+Las señales deben ser declaradas en las secciones de declaración de la entidad, arquitectura o paquetes. Las señales definidas en paquetes son comúnmente referidas como señales globales debido a que pueden ser compartidad entre las entidades.
+
+A continuación podemos ver un ejemplo de declaración de señales:
+
+```vhdl
+
+```

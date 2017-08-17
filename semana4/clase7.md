@@ -92,4 +92,6 @@ BEGIN
   END PROCESS;
 END mux_fix1;
 ```
+Las sentencias __WAIT__ después de cada asignación en las señales causan al proceso a esperar por un delta de tiempo antes de continuar con la ejecución. Esperar este delta ocasiona que el nuevo valor alcance a propagarse de la manera esperada.
 
+Una consecuencia de las sentencias __WAIT__, sin embargo, es que el proceso no puede tener una lista de sensibilidad. Un proceso con sentencias __WAIT__

@@ -52,4 +52,19 @@ Sin embargo esta arquitectura, como está definida en el __snippet__ de código 
 ```vhdl
 sel <= 0;
 ```
+Esta sentencia dentro de un __process__ agenda un evento para la señal __sel__ en el siguiente delta de tiempo con el valor de __0__. Sin embargo, el procesamiento continúa dentro de la sentencia __process__ con la siguiente sentencia secuencial. El valor de __sel__ se mantiene en el valor que haya tenido al ingresar al __process__. Sólo cuando el __process__ es completado el delta de tiempo finaliza y el nuevo valor en __sel__ se ve reflejado. Ya cuando esto suceda, el resto del __process__ ha sido procesado usando un valor erróneo del valor de __sel__.
 
+Existen 2 formas de solucionar este problema, el primero sería insertar una sentencia __WAIT__ después de cada asignación secuencial como se muestra a continuación:
+
+
+```vhdl
+ARCHITECTURE mux_fix1 OF mux IS
+  SIGNAL sel : INTEGER RANGE 0 TO 3;
+BEGIN
+  PROCESS
+    
+  
+  
+  END PROCESS;
+END mux_fix1;
+```

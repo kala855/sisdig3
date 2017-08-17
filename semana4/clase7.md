@@ -190,7 +190,7 @@ ENTITY board_design IS
         data_out: OUT bus_type);
         
   SIGNAL sys_clk : std_logic := '1';
-END board_desing;
+END board_design;
 
 ARCHITECTURE data_flow OF board_design IS
   SIGNAL int_bus : bus_type;

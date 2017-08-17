@@ -62,9 +62,34 @@ ARCHITECTURE mux_fix1 OF mux IS
   SIGNAL sel : INTEGER RANGE 0 TO 3;
 BEGIN
   PROCESS
+  BEGIN
+    sel <= 0;
+    WAIT FOR 0 ns; 
     
+    IF (a = '1') THEN
+      sel <= sel + 1;
+    END IF;
+    WAIT FOR 0 ns;
+    
+    IF (b='1') THEN
+      sel <= sel + 2;
+    END IF;
+    WAIT FOR 0 ns;
   
-  
+    CASE sel IS
+      WHEN 0 => 
+        q <= i0;
+      WHEN 1 => 
+        q <= i1;
+      WHEN 2 => 
+        q <= i2;
+      WHEN 3 => 
+        q <= i3;
+      WHEN OTHERS =>
+        q <= NULL;
+    END CASE;
+    WAIT ON a,b,i0,i1,i2,i3;
   END PROCESS;
 END mux_fix1;
 ```
+

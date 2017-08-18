@@ -27,4 +27,4 @@ Los tipos escalares comprenden estas cuatro clases:
 
 ### Tipos Enteros
 
-Son exactamente como los enteros matemáticos. Todas las operaciones básicas como suma, resta, multiplicación y división aplica a éste tipo de dato. El manual de referencia de __VHDL__ no especifica un rango máximo para enteros, pero especifica un rango mínimo: desde -2.147.483.647 hasta 12.147.483.647
+Son exactamente como los enteros matemáticos. Todas las operaciones básicas como suma, resta, multiplicación y división aplica a éste tipo de dato. El manual de referencia de __VHDL__ no especifica un rango máximo para enteros, pero especifica un rango mínimo: desde -2.147.483.647 hasta 12.147.483.647. Este rango está definido en el paquete estándar contenido en la __Standard Library__

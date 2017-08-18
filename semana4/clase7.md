@@ -226,3 +226,43 @@ Dentro de la declaración de la entidad __board_design__ se definió una señal 
 
 #### SEÑALES LOCALES EN ARQUITECTURAS:
 Dentro de la arquitectura __data_flow__ hay una declaración para la señal __int_bus__. Ésta señal es de tipo __bus_type__, un tipo definido en el paquete __sigdecl__. El paquete __sigdecl__ es usado en la entidad __board_design__, de ésta manera éste tipo va a estar disponible en la arquitectura __data_flow__. Dado que la señal es declarada en la sección de declaraciones de la arquitectura sólo puede ser referenciada en la arquitectura __data_flow__ o en cualquier proceso en la arquitectura.
+
+### VARIABLES
+Las variables con usadas para almacenamiento local en procesos y subprogramas. De manera opuesta a las señales, las cuales tienen sus valores agendados para el futuro, todas las asignaciones a variables ocurren inmediatamente. Una declaración de variable se ve como:
+
+```vhdl
+VARIABLE variable_name {,variable_name} : variable_type[:=value];
+```
+
+La palabra reservada __VARIABLE__ es seguida por uno o más nombres de variables. Cada nombre creará una nueva variable. Despues de los 2 puntos se debe definir el tipo de dato de la variable o variables definidas, un valor de inicialización es opcional. Las variables se pueden definir en la sección de declaraciones de los procesos y de los subprogramas solamente. Un ejemplo usando 2 variables puede verse a continuación:
+
+```vhdl
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+ENTITY and5 IS
+  PORT (a,b,c,d,e : IN std_logic
+        q : OUT std_logic);
+END and5;
+
+ARCHITECTURE and5 OF and5 IS
+BEGIN
+  PROCESS(a,b,c,d,e)
+    VARIABLE state : std_logic;
+    VARIABLE delay : time;
+  BEGIN
+
+    state := a AND b AND c AND d AND e;
+
+    IF state = '1' THEN
+      delay := 4.5 ns;
+    ELSIF state = '0' THEN
+      delay := 3 ns;
+    ELSE
+      delay := 4 ns;
+    END IF;
+
+    q <= state AFTER delay;
+
+  END PROCESS;
+END and5;  
+```

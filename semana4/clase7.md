@@ -268,3 +268,19 @@ END and5;
 ```
 
 Este ejemplo es la arquitectura para una compuerta __AND__ de 5 entradas. Hay dos declaraciones de variables en el sección de declaración del process: una para la variable __state__ y la otra para la variable __delay__. La variable __state__ es usada como un almacenamiento temporal para mantener el valor de la función __AND__. Mientras la variable __delay__ es usada para mantener un valor de retardo que será usado para agendar el valor en la salida. 
+
+### CONSTANTS
+
+Los objetos constantes son nombre asignados a valores específicos de algún tipo definido. Las constantes le permiten al diseñador la habilidad de tener un modelo mejor documentado y más fácil de actualizar. Por ejemplo, si un modelo requiere un valor fijo en diversas instancias, una constante podría ser usada. El uso de una constante, le permite al diseñador cmabiar el valor de la constante y recompilar, y todas las instancias que usen las constantes serán actualizadas con el nuevo valor.
+
+Una constante provee un modelo mejor documentado permitiendo definirle significados a los valores que son descritos. Por ejemplo, en lugar de usar el valor __3.1416__ directamente en el modelo, el diseñador podría crear un constante de la siguiente manera:
+
+```vhdl
+CONSTANT PI: REAL := 3.1416
+```
+
+Una declaración de constante se ve de la siguiente manera:
+
+```vhdl
+CONSTANT constant_name {,constant_name} : type_name[:= value];
+```

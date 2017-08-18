@@ -220,3 +220,9 @@ USE work.sigdecl.ALL;
 ```
 
 En el primer ejemplo los objetos son incluídos de manera específica. En el segundo ejemplo se incluye el paquete completo.
+
+#### SEÑALES GLOBALES EN ENTIDADES:
+Dentro de la declaración de la entidad __board_design__ se definió una señal llamada __sys_clk__. Ésta señal puede ser referencia en la entidad como tal y desde cualquier architectura que exista para la entidad __board_design__. En el ejemplo, hay sólo una arquitectura, __data_flow__, para la entidad. La señal __sys_clk__ puede entonces ser asignada y leída desde la entidad __board_design__ y desde la arquitectura __data_flow__.
+
+#### SEÑALES LOCALES EN ARQUITECTURAS:
+Dentro de la arquitectura __data_flow__ hay una declaración para la señal __int_bus__. Ésta señal es de tipo __bus_type__, un tipo definido en el paquete __sigdecl__. El paquete __sigdecl__ es usado en la entidad __board_design__, de ésta manera éste tipo va a estar disponible en la arquitectura __data_flow__. Dado que la señal es declarada en la sección de declaraciones de la arquitectura sólo puede ser referenciada en la arquitectura __data_flow__ o en cualquier proceso en la arquitectura.

@@ -266,3 +266,5 @@ BEGIN
   END PROCESS;
 END and5;  
 ```
+
+Este ejemplo es la arquitectura para una compuerta __AND__ de 5 entradas. Hay dos declaraciones de variables en el sección de declaración del process: una para la variable __state__ y la otra para la variable __delay__. La variable __state__ es usada como un almacenamiento temporal para mantener el valor de la función __AND__. Mientras la variable __delay__ es usada para mantener un valor de retardo que será usado para agendar el valor en la salida. 

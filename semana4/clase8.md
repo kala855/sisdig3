@@ -16,3 +16,11 @@ La construcción __type_mark__ cubre un amplio rango de metodos para especificar
 
 ## Tipos Escalares
 
+Los tipos escalares describen objetos que pueden almacenar como máximo un valor a la vez. Este tipo en sí puede contener múltiples valores, pero un objeto que es declarado para ser de este tipo puede almacenar uno de los valores escalares en un punto específico.
+
+Los tipos escalares comprenden estas cuatro clases:
+
+* Tipos Enteros
+* Tipos Reales
+* Tipos Enumerados
+* Tipos Físicos

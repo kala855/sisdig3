@@ -112,7 +112,6 @@ BEGIN
     VARIABLE sel : INTEGER RANGE 0 TO 3;
   BEGIN
     sel := 0;
-    WAIT FOR 0 ns; 
     
     IF (a = '1') THEN
       sel := sel + 1;
